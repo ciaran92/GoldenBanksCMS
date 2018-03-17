@@ -1,0 +1,31 @@
+<div class="content">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item active">Stallions Management</li>
+	</ol>
+	<%= link_to "Add Stallion", new_stallion_path, class:"btn btn-primary float-right" %>
+	<div class="container">
+		<table>
+			<tr>
+				<th><h4>Name</h4></th>
+				<th><h4>Image</h4></th>
+				<th><h4>Options</h4></th>
+			</tr>
+			<% @stallions.each do |stallion| %>
+			<tr>
+				<td><p><%= stallion.name %></p></td>
+				<td><%= image_tag stallion.image.url, :class => "stallion-thumb"%></td>
+				<td>
+					<%= button_to "Edit", edit_stallion_path(stallion), 
+								method: :get,
+								:class => 'btn btn-primary button-delete' %>
+					<%= button_to "Delete", stallion_path(stallion), 
+								method: :delete,
+								data: {confirm: 'Are you sure?'},
+								:class => 'btn btn-primary button-delete' %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+		
+	</div>
+</div>

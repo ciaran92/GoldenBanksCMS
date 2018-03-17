@@ -1,0 +1,12 @@
+<div class="content">
+	<h3><%= @article.title %></h3>
+	<p><%= @article.body %></p>
+
+	<%= link_to edit_article_path do %>
+		<button type="button" class="button-edit btn btn-default">Edit</button>
+	<% end %>
+	<%= button_to "Delete", article_path(@article), 
+			method: :delete,
+			data: {confirm: 'Are you sure?'},
+			:class => 'btn btn-default button-delete' %>
+</div>

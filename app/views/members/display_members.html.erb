@@ -1,0 +1,30 @@
+<div class="content">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item active">Show Team Management</li>
+	</ol>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Image</th>
+			<th>Options</th>
+		</tr>
+		<% @members.each do |member| %>
+		<tr>
+			<td><%= member.name %></td>
+			<td><%= member.age %></td>
+			<td><%= image_tag member.image.url %></td>
+			<td>
+				<%= button_to "Edit", edit_member_path(member), 
+							method: :get,
+							:class => 'btn btn-default button-delete' %>
+				<%= button_to "Delete", member_path(member), 
+							method: :delete,
+							data: {confirm: 'Are you sure?'},
+							:class => 'btn btn-default button-delete' %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+	<%= link_to "Add Show Team Member", new_member_path %>
+</div>

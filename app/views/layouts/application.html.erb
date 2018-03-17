@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AdminServer</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+
+    <% if user_signed_in? %>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" style="color: #aaaaaa">My CMS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" routerLink="dashboard">Dashboard</a>
+                            <a class="dropdown-item" href="#">Go To Site</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-right">
+                    <span class="navbar-text" style="margin-right: 15px">Welcome Shirley</span>
+                        <%= button_to "Logout", destroy_user_session_path, 
+                            method: :delete,
+                            :class => 'btn btn-primary' %>
+                </ul> 
+            </div>
+        </nav>
+
+        <div class="management-tab">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active">
+                Website Management
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Manage Homepage</button>
+                <%= button_to "Manage Stallions Page", all_stallions_path, method: :get, :class => "list-group-item list-group-item-action" %>
+                <%= button_to "Manage Show Team Page", display_members_path, method: :get, :class => "list-group-item list-group-item-action" %>
+                <button type="button" class="list-group-item list-group-item-action">Manage For Sale Page</button>
+                <%= button_to "Manage Blog", display_blog_path, method: :get, :class => "list-group-item list-group-item-action" %>
+                <button type="button" class="list-group-item list-group-item-action">Contact Info</button>
+            </div>
+        </div>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article_card:hover{
+	text-decoration: none;
+}
+
+.card-image{
+	width: 100%;
+	height: auto;
+	border-radius: 4px;
+}
+
+.published-date{
+	color: #bdbdbd;
+	font-style: italic;
+}
+
+.card-block{
+	padding: 10px;
+}

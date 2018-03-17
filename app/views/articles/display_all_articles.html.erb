@@ -1,0 +1,27 @@
+<div class="content">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item active">Blog Management</li>
+	</ol>
+	<%= link_to "Create Post", new_article_path, class: 'btn btn-primary float-right' %>
+	<div class="container">
+		
+			<div class="row">
+				<% @articles.each do |article| %>
+					<div class="col-sm-6 col-lg-4">
+						<div class="card">
+							<div class="card-image"><%= image_tag article.image_url(), class: 'card-image' %></div>
+							<div class="card-block">
+								<h4 class="card-title"><%= article.title %></h4>
+								<p class="published-date">Published <%= article.created_at.strftime("%b %d, %Y") %></p>
+								<p class="card-text"><%= truncate(article.body, length: 150) %></p>
+								<%= link_to 'Edit', edit_article_path(article), class: 'btn btn-primary' %>
+								<%= link_to 'Delete', article_path(article), 
+										method: :delete, data: {confirm: 'Are you sure?'}, 
+										class: 'btn btn-primary' %>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+	</div>
+</div>

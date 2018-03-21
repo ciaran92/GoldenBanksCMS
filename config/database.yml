@@ -44,7 +44,7 @@ test:
 #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
 #
 # You can use this database configuration with:
-#
+#mysql://b2c5d00464d1f4:9c59e475@us-cdbr-iron-east-05.cleardb.net/heroku_f1a700826e846d9?reconnect=true
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
@@ -52,4 +52,4 @@ production:
   <<: *default
   database: heroku_f1a700826e846d9
   username: b2c5d00464d1f4
-  password: <%= ENV['9c59e475'] %>
+  password: 9c59e475

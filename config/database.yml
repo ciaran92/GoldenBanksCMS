@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: b54810507d9b8a
-  password: 461a0160
+  username: b2c5d00464d1f4
+  password: 9c59e475
   host: us-cdbr-iron-east-05.cleardb.net
   socket: /var/lib/mysql/mysql.sock
 
@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: heroku_5973eb9447b1a3c
-  username: b54810507d9b8a
-  password: <%= ENV['461a0160'] %>
+  database: heroku_f1a700826e846d9
+  username: b2c5d00464d1f4
+  password: <%= ENV['9c59e475'] %>
